@@ -1,0 +1,26 @@
+/* Puedes agregar estilos adicionales si lo deseas */
+.form-input {
+  @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
+}
+
+/* Aplica el mismo estilo para los selects */
+.form-select {
+  @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-white;
+}
+
+button {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ===== Ícono del header (SVG) ===== */
+.icon-tabler-first-aid-kit {
+  @apply w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 align-middle mr-1;
+  stroke-width: 2.1;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.icon-tabler-first-aid-kit:hover {
+  transform: scale(1.05);
+  stroke: theme('colors.primary');
+}
+

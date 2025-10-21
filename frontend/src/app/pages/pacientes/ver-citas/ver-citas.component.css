@@ -1,0 +1,16 @@
+/* Puedes agregar pequeños ajustes si quieres */
+.container {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== Ícono del header (SVG) ===== */
+.icon-tabler-first-aid-kit {
+  @apply w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 align-middle mr-1;
+  stroke-width: 2.1;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.icon-tabler-first-aid-kit:hover {
+  transform: scale(1.05);
+  stroke: theme('colors.primary');
+}

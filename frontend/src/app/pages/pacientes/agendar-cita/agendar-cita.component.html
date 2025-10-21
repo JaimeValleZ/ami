@@ -1,0 +1,77 @@
+<div
+    class="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+    <div class="w-full max-w-lg space-y-8">
+        <div>
+            <h2 class="text-center text-3xl font-bold tracking-tight">Agendar Cita</h2>
+            <p class="mt-2 text-center text-sm text-foreground-light/60 dark:text-foreground-dark/60">
+                Completa el formulario para agendar una nueva consulta médica.
+            </p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()"
+            class="mt-8 space-y-6 bg-card-light dark:bg-card-dark p-8 rounded-xl border border-border-light dark:border-border-dark shadow-lg">
+            <div class="space-y-4">
+                <!-- Nombre -->
+                <div>
+                    <label class="text-sm font-medium" for="nombre">Nombre Completo</label>
+                    <input id="nombre" type="text" [value]="pacienteNombre" readonly
+                        class="mt-1 block w-full px-3 py-2 bg-gray-100 dark:bg-gray-800 border border-border-light dark:border-border-dark rounded-md text-gray-600 dark:text-gray-300 cursor-not-allowed" />
+                </div>
+
+                <!-- Correo -->
+                <div>
+                    <label class="text-sm font-medium" for="email">Correo Electrónico</label>
+                    <input id="email" type="email" [value]="pacienteEmail" readonly
+                        class="mt-1 block w-full px-3 py-2 bg-gray-100 dark:bg-gray-800 border border-border-light dark:border-border-dark rounded-md text-gray-600 dark:text-gray-300 cursor-not-allowed" />
+                </div>
+
+                <!-- Especialidad -->
+                <div>
+                    <label class="text-sm font-medium" for="especialidad">Especialidad</label>
+                    <select id="especialidad" name="especialidad" [(ngModel)]="form.especialidad"
+                        class="mt-1 block w-full pl-3 pr-10 py-2 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-md focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                        <option value="" disabled selected>Seleccione una especialidad</option>
+                        <option *ngFor="let esp of especialidades" [value]="esp">{{ esp }}</option>
+                    </select>
+                </div>
+
+                <!-- Médico -->
+                <div>
+                    <label class="text-sm font-medium" for="doctor">Médico</label>
+                    <select id="doctor" name="doctor" [(ngModel)]="form.idMedico"
+                        class="mt-1 block w-full pl-3 pr-10 py-2 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-md focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                        <option value="" disabled selected>Seleccione un médico</option>
+                        <option *ngFor="let medico of medicos" [value]="medico.id">
+                            {{ medico.nombre }} - {{ medico.especialidad }}
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Fecha y hora -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-sm font-medium" for="fecha">Fecha</label>
+                        <input id="fecha" name="fecha" type="date" required [(ngModel)]="form.fecha"
+                            class="mt-1 block w-full px-3 py-2 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" />
+                    </div>
+
+                    <div>
+                        <label class="text-sm font-medium" for="hora">Hora</label>
+                        <input id="hora" name="hora" type="time" required [(ngModel)]="form.hora" min="08:00"
+                            max="18:00" step="3600"
+                            class="mt-1 block w-full px-3 py-2 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" />
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Botón -->
+            <div>
+                <button type="submit"
+                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                    Agendar Cita
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

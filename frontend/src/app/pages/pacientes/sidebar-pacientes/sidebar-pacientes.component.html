@@ -1,0 +1,97 @@
+<aside class="w-64 h-screen bg-white p-6 flex flex-col justify-between shadow-md fixed lg:flex">
+  <!-- Contenedor superior (logo + usuario + menú) -->
+  <div>
+    <!-- Encabezado -->
+    <div class="flex flex-col gap-2 mb-8">
+      <div class="flex items-center gap-3">
+        <svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" />
+        </svg>
+        <h1 class="text-xl font-bold">AMI</h1>
+      </div>
+
+      <!-- 👤 Nombre y Rol -->
+      <div class="mt-3 px-1">
+        <p class="text-gray-800 font-semibold">{{ userName }}</p>
+        <p class="text-sm text-gray-500">{{ userRole }}</p>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="flex flex-col gap-2">
+      <a routerLink="/paciente/dashboard" routerLinkActive="bg-primary/10 text-primary font-semibold"
+        class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-layout-dashboard">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1" />
+          <path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1" />
+          <path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1" />
+          <path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1" />
+        </svg>
+        Dashboard
+      </a>
+
+      <a routerLink="/paciente/agendar-cita" routerLinkActive="bg-primary/10 text-primary font-semibold"
+        class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-plus">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" />
+          <path d="M16 3v4" />
+          <path d="M8 3v4" />
+          <path d="M4 11h16" />
+          <path d="M16 19h6" />
+          <path d="M19 16v6" />
+        </svg>
+        Asignar Cita
+      </a>
+
+      <a routerLink="/historial-citas" routerLinkActive="bg-primary/10 text-primary font-semibold"
+        class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-history">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 8l0 4l2 2" />
+          <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+        </svg>
+        Historial de Citas
+      </a>
+
+      <a routerLink="/perfil" routerLinkActive="bg-primary/10 text-primary font-semibold"
+        class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+        </svg>
+        Mi Perfil
+      </a>
+    </nav>
+  </div>
+
+  <!-- Botón de cierre de sesión fijo abajo -->
+  <div>
+    <a (click)="logout()"
+      class="flex items-center gap-3 px-4 py-2 rounded-lg text-red-600 hover:bg-red-100 transition-colors cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-logout">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+        <path d="M9 12h12l-3 -3" />
+        <path d="M18 15l3 -3" />
+      </svg>
+      Cerrar Sesión
+    </a>
+  </div>
+</aside>

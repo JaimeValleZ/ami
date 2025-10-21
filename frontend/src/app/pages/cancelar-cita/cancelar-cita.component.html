@@ -1,0 +1,134 @@
+<div class="flex flex-col min-h-screen font-display text-foreground-light bg-background-light">
+  <header class="bg-card-light border-b border-border-light sticky top-0 z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-4">
+          <svg
+            class="h-8 w-8 text-primary"
+            fill="none"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            ></path>
+            <path
+              clip-rule="evenodd"
+              d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+          <h1 class="text-xl font-bold">AMI</h1>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-sm font-medium text-muted-light hover:text-primary transition-colors"
+            href="#"
+            >Inicio</a
+          >
+          <a
+            class="text-sm font-medium text-muted-light hover:text-primary transition-colors"
+            href="#"
+            >Pacientes</a
+          >
+          <a class="text-sm font-medium text-primary" href="#">Agenda</a>
+          <a
+            class="text-sm font-medium text-muted-light hover:text-primary transition-colors"
+            href="#"
+            >Facturación</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 rounded-full hover:bg-background-light text-muted-light hover:text-foreground-light transition-colors"
+          >
+            <svg
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 256 256"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+              ></path>
+            </svg>
+          </button>
+          <div
+            class="w-10 h-10 rounded-full bg-cover bg-center"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-LZpsKbDU2lVq52uecg0Hzk00ZukM-Kb_dR19hI9Rj-cnl9yFXGRznqb_b8rLOLMQCXXDspZ1MunO8fqARYV8oFDCvXGW0BuTRKXOkJKy7iZ5BQGvqj3j59xNQJjwCStVOLTnB7UlRJoGQ6KKyAi8dsmLFMpRQZyqkRAwmHQYECroG9YUvfRYLrocUOvi_U_YDyBBamq7WhTl2s_EX0T6eua3Bhm6-qMb4vHx_IgrndfsWO7QUJto72-niQwfDZLwIeWLMlcKVv0");'
+          ></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-xl mx-auto">
+      <div class="bg-card-light rounded-lg shadow-sm overflow-hidden">
+        <div class="p-6 border-b border-border-light">
+          <h2 class="text-2xl font-bold">Cancelar Cita</h2>
+          <p class="text-muted-light mt-1">
+            Complete los detalles a continuación para cancelar la cita.
+          </p>
+        </div>
+
+        <form class="p-6 space-y-6">
+          <div>
+            <label class="block text-sm font-medium mb-2" for="appointment"
+              >Seleccionar Cita</label
+            >
+            <select
+              id="appointment"
+              name="appointment"
+              class="form-select w-full appearance-none bg-card-light border border-border-light rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+            >
+              <option>Seleccionar cita a cancelar</option>
+              <option value="1">
+                Lunes, 15 de Julio 2024 - 10:00 AM - Juan Pérez
+              </option>
+              <option value="2">
+                Martes, 16 de Julio 2024 - 02:30 PM - María Rodríguez
+              </option>
+              <option value="3">
+                Jueves, 18 de Julio 2024 - 09:15 AM - Carlos González
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2" for="reason"
+              >Motivo de la cancelación</label
+            >
+            <select
+              id="reason"
+              name="reason"
+              class="form-select w-full appearance-none bg-card-light border border-border-light rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+            >
+              <option>Seleccionar un motivo</option>
+              <option value="patient_cancellation">El paciente canceló</option>
+              <option value="doctor_unavailable">Médico no disponible</option>
+              <option value="rescheduled">Cita reprogramada</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button
+              type="submit"
+              class="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-card-light focus:ring-primary transition-colors"
+            >
+              Confirmar Cancelación
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

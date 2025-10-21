@@ -1,0 +1,117 @@
+<main class="flex-1 p-6 lg:p-10 bg-gray-50 font-display text-gray-800 min-h-screen">
+  <div class="max-w-5xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900">Panel de Control</h1>
+      <p class="text-lg text-gray-600 mt-1">
+        Bienvenido de nuevo, {{ authService.getNombreFromToken() || 'Paciente' }}.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Próximas citas -->
+      <div class="md:col-span-2 space-y-8">
+        <section>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold text-gray-900">Próximas Citas</h2>
+            <button
+              class="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+              routerLink="/paciente/agendar-cita"
+            >
+              Agendar Nueva Cita
+            </button>
+          </div>
+
+          <!-- Estado de carga -->
+          <div *ngIf="cargando" class="text-gray-500 text-center py-4">
+            Cargando tus citas...
+          </div>
+
+          <!-- Lista de citas -->
+          <div *ngIf="!cargando && consultas.length > 0" class="space-y-4">
+            <div
+              *ngFor="let consulta of consultas"
+              class="bg-white p-4 rounded-lg flex items-center justify-between border border-gray-200 transition-opacity"
+              [class.opacity-60]="consulta.motivoCancelamiento"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-24 h-24 rounded-lg bg-cover bg-center flex-shrink-0"
+                  style="background-image: url('https://cdn-icons-png.flaticon.com/512/3774/3774299.png');"
+                ></div>
+                <div class="flex-grow">
+                  <p class="font-bold text-gray-900">
+                    Consulta con Dr(a). {{ consulta.medico?.nombre || 'Sin asignar' }}
+                  </p>
+                  <p class="text-sm text-gray-500">{{ consulta.especialidad }}</p>
+                  <p class="text-sm text-gray-500 mt-1">
+                    {{ consulta.fecha | date: 'fullDate' }} - {{ consulta.fecha | date: 'shortTime' }}
+                  </p>
+
+                  <!-- Estado de cita cancelada -->
+                  <div *ngIf="consulta.motivoCancelamiento" class="flex items-center gap-1 mt-2 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18.364 5.636l-12.728 12.728M5.636 5.636l12.728 12.728" />
+                    </svg>
+                    <span class="text-sm italic">
+                      Cita cancelada ({{ consulta.motivoCancelamiento | titlecase }})
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botón cancelar -->
+              <button
+                class="px-4 py-2 rounded-lg font-semibold transition"
+                [ngClass]="{
+                  'bg-red-500 hover:bg-red-600 text-white': !consulta.motivoCancelamiento,
+                  'bg-gray-300 text-gray-600 cursor-not-allowed': consulta.motivoCancelamiento
+                }"
+                [disabled]="consulta.motivoCancelamiento"
+                (click)="cancelarCita(consulta.idConsulta)"
+              >
+                {{ consulta.motivoCancelamiento ? 'Cancelada' : 'Cancelar' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Sin citas -->
+          <div *ngIf="!cargando && consultas.length === 0" class="text-gray-500 text-center py-4">
+            No tienes citas programadas aún.
+          </div>
+        </section>
+      </div>
+
+      <!-- Notificaciones -->
+      <div class="md:col-span-1">
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">Notificaciones</h2>
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg flex gap-4 items-start border border-gray-200">
+              <div class="bg-primary/10 text-primary rounded-full p-2 mt-1">
+                <svg
+                  class="fill-current"
+                  height="24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06Z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">
+                  Revisa tus próximas citas programadas.
+                </p>
+                <p class="text-sm text-gray-500">Recordatorio</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

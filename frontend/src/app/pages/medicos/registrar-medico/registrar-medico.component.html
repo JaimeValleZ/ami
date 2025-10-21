@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>AMI - Registrar Nuevo Médico</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#13a4ec',
+          'background-light': '#f6f7f8',
+        },
+        fontFamily: {
+          display: ['Inter'],
+        },
+        borderRadius: {
+          DEFAULT: '0.25rem',
+          lg: '0.5rem',
+          xl: '0.75rem',
+          full: '9999px',
+        },
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light font-display text-slate-900">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+  <div class="flex h-full grow flex-col">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 px-10 py-3 bg-white">
+      <div class="flex items-center gap-4 text-slate-800">
+        <div class="h-8 w-8 text-primary">
+          <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+            <path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-bold tracking-tight">AMI</h2>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a class="hover:text-primary transition-colors" href="#">Inicio</a>
+        <a class="hover:text-primary transition-colors" href="#">Pacientes</a>
+        <a class="hover:text-primary transition-colors" href="#">Doctores</a>
+        <a class="hover:text-primary transition-colors" href="#">Citas</a>
+        <a class="hover:text-primary transition-colors" href="#">Reportes</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-slate-600 hover:bg-primary/20 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined"> notifications </span>
+        </button>
+        <div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDh2u3l7u5cqPQlP87myOlAMBV0x7LLuY9-lY486Pjw9GwtQ3_HAtx-l-F0zJs9VlAugwp7rkmztHI8SvJ_PrOHxoUS7q0f3XNVJAZYgYGmqW15MQd2-i-fGRubbM9vpbIdT3apoBLW91KyCgEJoPhfD0u9U15SnWG9yGir2-XN0a6IOUxUPpFRge3k5oRzNks3XBkuiOVIBsUHymfxVKCK8Dc_rHCRjxa-v6qm2zQZw8LdAF49XJDd0VsW2QFCsFFXRXzg944LXfQ");'></div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
+      <div class="w-full max-w-4xl">
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900">Registrar Nuevo Médico</h1>
+        <p class="mt-2 text-base text-slate-600">Complete el formulario a continuación para agregar un nuevo médico al sistema.</p>
+
+        <form class="mt-8 space-y-6">
+          <!-- Información Personal -->
+          <div class="border-b border-gray-200 pb-6">
+            <h2 class="text-lg font-semibold text-slate-800">Información Personal</h2>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Nombre</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el nombre del médico" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Apellido</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el apellido del médico" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Correo Electrónico</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el correo electrónico" type="email"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Teléfono</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el teléfono" type="tel"/>
+              </label>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="border-b border-gray-200 pb-6">
+            <h2 class="text-lg font-semibold text-slate-800">Dirección</h2>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Calle</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese la calle" type="text"/>
+              </label>
+              <div class="grid grid-cols-2 gap-6">
+                <label class="flex flex-col gap-2">
+                  <span class="text-sm font-medium text-slate-700">Número</span>
+                  <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Número" type="text"/>
+                </label>
+                <label class="flex flex-col gap-2">
+                  <span class="text-sm font-medium text-slate-700">Complemento</span>
+                  <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Apto, Casa" type="text"/>
+                </label>
+              </div>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Barrio</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el barrio" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Código Postal</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el código postal" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Ciudad</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese la ciudad" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Estado</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el estado" type="text"/>
+              </label>
+            </div>
+          </div>
+
+          <!-- Información Profesional -->
+          <div class="border-b border-gray-200 pb-6">
+            <h2 class="text-lg font-semibold text-slate-800">Información Profesional</h2>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Especialidad</span>
+                <select class="form-select w-full rounded-lg border-gray-300 bg-white text-slate-900 focus:border-primary focus:ring-primary">
+                  <option>Seleccione la especialidad</option>
+                  <option>Cardiología</option>
+                  <option>Dermatología</option>
+                  <option>Pediatría</option>
+                  <option>Neurología</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- Credenciales -->
+          <div class="border-b border-gray-200 pb-6">
+            <h2 class="text-lg font-semibold text-slate-800">Credenciales de Acceso</h2>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Usuario</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese el nombre de usuario" type="text"/>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-slate-700">Contraseña</span>
+                <input class="form-input w-full rounded-lg border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary" placeholder="Ingrese la contraseña" type="password"/>
+              </label>
+            </div>
+          </div>
+
+          <div class="flex justify-end pt-4">
+            <button class="flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="submit">
+              Registrar Médico
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+  </div>
+</div>
+</body>
+</html>
