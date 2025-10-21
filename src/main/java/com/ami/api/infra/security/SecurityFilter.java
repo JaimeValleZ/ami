@@ -25,6 +25,13 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         System.out.println("ENTRADA FULTRO");
+        String requestPath = request.getServletPath();
+
+        // 🔒 Si la petición es al login, no se valida token
+        if (requestPath.equals("/login")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
         var tokenJWT = recuperarToken(request);//Traer token del usuario
         //Si se viene el token se hace la siguiente autenticacion
         if(tokenJWT != null){

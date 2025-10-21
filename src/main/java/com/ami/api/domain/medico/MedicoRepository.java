@@ -1,5 +1,6 @@
 package com.ami.api.domain.medico;
 
+import com.ami.api.domain.paciente.Paciente;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
@@ -32,4 +33,6 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
                         WHERE m.id = :id
         """)
     boolean findActivoById(Long id);
+
+    Paciente findByUsuarioEmail(String email);
 }

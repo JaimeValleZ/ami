@@ -3,10 +3,13 @@ package com.ami.api.domain.consulta;
 import com.ami.api.domain.ValidacionException;
 import com.ami.api.domain.consulta.validaciones.ValidacionCancelarCita24H;
 import com.ami.api.domain.consulta.validaciones.ValidacionDeConsultas;
+import com.ami.api.domain.medico.DatosListaMedico;
 import com.ami.api.domain.medico.Medico;
 import com.ami.api.domain.medico.MedicoRepository;
 import com.ami.api.domain.paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -77,5 +80,9 @@ public class ReservaDeConsultas {
 
         var consulta = consultaRepository.getReferenceById(datos.idConsulta());
         consulta.cancelar(datos.motivo());
+    }
+
+    public Page<DatosListarConsultas> listarConsultas(Pageable paginacion, Long idPaciente) {
+        return consultaRepository.findAllByPacienteId(idPaciente, paginacion).map(DatosListarConsultas::new);
     }
 }

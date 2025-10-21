@@ -23,7 +23,9 @@ public class SecurityConfig {
 
     @Bean//La clase tiene que estar cargada y el metodo disponnile para que spring security lo pueda leer
     public SecurityFilterChain securityFilterChain(HttpSecurity http, com.ami.api.infra.security.CustomAccessDeniedHandler customAccessDeniedHandler) throws Exception {
-        return http.csrf(csrf -> csrf.disable()) //sistema de cookies por el cual podemos recibir ataques
+        return http
+                .cors(cors -> {})
+                .csrf(csrf -> csrf.disable()) //sistema de cookies por el cual podemos recibir ataques
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))//Sistema Statelles y no mas reenvio al formulario de liogin
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/login").permitAll()
@@ -42,7 +44,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.POST,"/medicos").hasRole("ADMIN")
                             .requestMatchers(HttpMethod.DELETE,"/medicos/**").hasRole("ADMIN")
                             .requestMatchers(HttpMethod.PUT,"/medicos/**").hasRole("ADMIN")
-                            .requestMatchers(HttpMethod.GET,"/medicos/**").hasAnyRole("ADMIN", "MEDICO")
+                            .requestMatchers(HttpMethod.GET,"/medicos/**").hasAnyRole("ADMIN", "MEDICO", "PACIENTE")
 
                             .anyRequest().authenticated();
                 })

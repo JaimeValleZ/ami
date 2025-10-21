@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("/paciente")
 @SecurityRequirement(name = "bearer-key")
+@CrossOrigin("*")
 public class PacienteController {
 
     @Autowired
